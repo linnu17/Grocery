@@ -12,32 +12,34 @@ import base.TestNGBase;
 import constant.Constants;
 import constant.Messages;
 import pages.AdminPage;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class AdminTest extends TestNGBase {
+	HomePage home;
+	AdminPage admin;
 @Test
 	public void verifyadduser() throws IOException {
 	String usernameValue =ExcelUtility.getStringData(1, 0, "LoginPage");
 	String passwordValue =ExcelUtility.getStringData(1, 1, "LoginPage");
 	LoginPage login = new LoginPage(driver);
-	login.enterusername(usernameValue);
-	login.enterpassword(passwordValue);
-	login.clicksignin();
+	login.enterusername(usernameValue).enterpassword(passwordValue);
+	//login.enterpassword(passwordValue);
+	home=login.clicksignin();
 	
 	FakerUtility fakerUtility = new FakerUtility();
 	String randomname=fakerUtility.createRandomUserName();
 	String randompassword=fakerUtility.createRandomPassword();
 //	String usertype = ExcelUtility.getStringData(1, 2, "HomePage");
 	
-	AdminPage admin = new AdminPage(driver);
-	admin.clickMoreInfo();
-	admin.addnewuser();
-	admin.addNewUsername(randomname);
-	admin.enterNewPassword(randompassword);
-	admin.newUserType();
-	admin.userSave();
+	//AdminPage admin = new AdminPage(driver);
+	 admin=home.clickMoreInfo();   
+	admin.addNewUsername(randomname).enterNewPassword(randompassword).newUserType().userSave();
+//	admin.enterNewPassword(randompassword);
+//	admin.newUserType();
+//	admin.userSave();
 	
 	boolean isalertdisplayed = admin.newAlert();
 	//Assert.assertTrue(isalertdisplayed, "New item is not added");
@@ -49,17 +51,18 @@ public void verifysearch() throws IOException {
 	String usernameValue =ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
 	String passwordValue =ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 	LoginPage login = new LoginPage(driver);
-	login.enterusername(usernameValue);
-	login.enterpassword(passwordValue);
-	login.clicksignin();
+	login.enterusername(usernameValue).enterpassword(passwordValue);
+	//login.enterpassword(passwordValue);
+	home=login.clicksignin();
 	FakerUtility fakerUtility = new FakerUtility();
 	String randomname=fakerUtility.createRandomUserName();
-	AdminPage admin = new AdminPage(driver);
-	admin.clickMoreInfo();
-	admin.userSearch();
-admin.searchByName(randomname);
-admin.searchUserType();
-admin.searchUser();
+	//AdminPage admin = new AdminPage(driver);
+	admin=home.clickMoreInfo();
+	//home.clickMoreInfo().
+	admin.userSearch().searchByName(randomname).searchUserType().searchUser();
+//admin.searchByName(randomname);
+//admin.searchUserType();
+//admin.searchUser();
 
 	boolean isalertdisplayed= admin.searchAlert();
 	//Assert.assertTrue(isalertdisplayed, "Search button is not displayed");
@@ -81,9 +84,9 @@ public void verifyreset() throws IOException {
 //	WebElement signin = driver.findElement(By.xpath("//button[text() ='Sign In']"));
 //	signin.click();
 	LoginPage login = new LoginPage(driver);
-	login.enterusername(usernameValue);
-	login.enterpassword(passwordValue);
-	login.clicksignin();
+	login.enterusername(usernameValue).enterpassword(passwordValue);
+	//login.enterpassword(passwordValue);
+	home=login.clicksignin();
 	FakerUtility fakerUtility = new FakerUtility();
 	String randomname=fakerUtility.createRandomUserName();
 	String randompassword=fakerUtility.createRandomPassword();
@@ -92,15 +95,16 @@ public void verifyreset() throws IOException {
 //	adminmoreInfo.click();
 //	WebElement newuser =driver.findElement(By.xpath("//a[@class='btn btn-rounded btn-danger']"));
 //	newuser.click();
-	AdminPage admin = new AdminPage(driver);
-	admin.clickMoreInfo();
-	admin.addnewuser();
+	//AdminPage admin = new AdminPage(driver);
+	admin=home.clickMoreInfo();
 	
-	admin.reset();
+	admin.addnewuser().reset();
+	
+	//admin.reset();
 	WebElement resetassert = driver.findElement(By.xpath("//h4[@class='card-title' and text() ='Admin Users']"));
 
 	boolean isalertdisplayed = admin.resetAlert();
-	Assert.assertTrue(isalertdisplayed, "Admin User header is not displayed");
+	
 
 Assert.assertTrue(isalertdisplayed, Messages.RESET_ASSERT);
 

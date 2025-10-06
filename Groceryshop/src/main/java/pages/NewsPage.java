@@ -17,44 +17,39 @@ public class NewsPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 }
-	@FindBy(xpath ="//a[@class='small-box-footer'and @href ='https://groceryapp.uniqassosiates.com/admin/list-news']")WebElement newsmoreinfo;
-	public void newsMoreInfo() {
-		//WebElement newsmoreinfo = driver.findElement(By.xpath("//a[@class='small-box-footer'and @href ='https://groceryapp.uniqassosiates.com/admin/list-news']"));
-		//newsmoreinfo.click();
-		wait.waitUntilClickable(driver, newsmoreinfo);
-		page.clickOnElement(newsmoreinfo);
+	
+	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")WebElement clickknews;
+	public NewsPage  clicknewnews() {
+		wait.waitUntilClickable(driver, clickknews);
+		clickknews.click();
+		return this;
 	}
 	@FindBy(xpath ="//a[text()='Home']")WebElement homeclick;
-	public void clickHome() {
+	public HomePage clickHome() {
 //		WebElement homeclick =driver.findElement(By.xpath("//a[text()='Home']"));
 		//homeclick.click();
-		wait.waitUntilClickable(driver, homeclick);
+//		wait.waitUntilClickable(driver, homeclick);
 		page.clickOnElement(homeclick);
-	}
-	@FindBy(xpath ="//a[@class='btn btn-rounded btn-danger']")WebElement newsmanageinfo;
-	public void newsManageInfo() {
-		//WebElement newsmanageinfo = driver.findElement(By.xpath("//a[@class='btn btn-rounded btn-danger']"));
-		//newsmanageinfo.click();
-		page.clickOnElement(newsmanageinfo);
+		return new HomePage(driver);
 	}
 	@FindBy(xpath ="//textarea[@id='news']")WebElement textarea;
-	public void textArea() {
+	public NewsPage textareafield() {
 		//WebElement textarea = driver.findElement(By.xpath("//textarea[@id='news']"));
-		//textarea.click();
-		page.clickOnElement(textarea);
+		//textarea.sendKeys("This is a sample news");
+		page.sendDataToElement(textarea, "This is a sample news");
+		return this;
+		
 	}
 	@FindBy(xpath ="//button[@name='create']")WebElement savemanage;
-	public void saveManage() {
+	public NewsPage clickSave() {
 		//WebElement savemanage = driver.findElement(By.xpath("//button[@name='create']"));
 		//savemanage.click();
 		page.clickOnElement(savemanage);
+		return this;
 	}
-	@FindBy(xpath ="//div[@classalert alert-success alert-dismissible]")WebElement newsalert;
+	@FindBy(xpath ="//div[@class='alert alert-success alert-dismissible']")WebElement newsalert;
 	public boolean newsAlert() {
-		//WebElement newsalert=driver.findElement(By.xpath("//div[@classalert alert-success alert-dismissible]"));
+		//WebElement newsalert = driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissible']"));
 		return newsalert.isDisplayed();
 	}
-
 }
-
-

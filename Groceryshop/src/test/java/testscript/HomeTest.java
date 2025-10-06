@@ -15,28 +15,29 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class HomeTest extends TestNGBase{
-	@Test (description="verify logout")
-	public void verifylogout() throws IOException {
-			String usernameValue =ExcelUtility.getStringData(1, 0,Constants.LOGINSHEET);
-			String passwordValue =ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
-			// click window+v
-			LoginPage login=new LoginPage(driver);
-			login.enterusername(usernameValue);
-			login.enterpassword(passwordValue);
-			login.clicksignin();
-			
-			HomePage page=new HomePage(driver);
-			page.loginclick();
-			page.logoutclick();
-			
-			
-			String expected="https://groceryapp.uniqassosiates.com/admin";
-		    String actual=driver.getCurrentUrl();
-//			Assert.assertEquals(actual, expected,"Logout is not successfull");
-			Assert.assertEquals(actual, expected,Messages.LOGOUT_ASSERT);
-		}
+	HomePage home;
+	@Test(description = "verify Logout")
+	public void verifyLogout() throws IOException {
+//	String usernameValue =ExcelUtility.getStringData(1, 0, "LoginPage");
+//	String passwordValue =ExcelUtility.getStringData(1, 1, "LoginPage");
+//	LoginPaginu we have created a constant in constants class that we are caliing below
+	//We have to replace every "LoginPage"with the constant we have created in every test cases.
+		String usernameValue =ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+		String passwordValue =ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
+		
+		LoginPage login = new LoginPage(driver);
+		login.enterusername(usernameValue).enterpassword(passwordValue);
+//		login.enterpassword(passwordValue);
+	    home =	login.clicksignin();
+	//	HomePage home = new HomePage(driver);
+		home.adminclicks();
+	    login=home.logoutclicks();
+		String expected = "https://groceryapp.uniqassosiates.com/admin/login";
+		String actual = driver.getCurrentUrl();
+	//	Assert.assertEquals(actual, expected,"Logout is not successfull");
+		Assert.assertEquals(actual, expected,Messages.LOGOUT_ASSERT);
+		
 	}
-
-
+}
 
 

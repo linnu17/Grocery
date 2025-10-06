@@ -11,10 +11,12 @@ import org.testng.annotations.Test;
 import base.TestNGBase;
 import constant.Constants;
 import constant.Messages;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends TestNGBase{
+	HomePage home;
 	@Test(priority = 1,description = "verify login with valid credentials",retryAnalyzer = retry.Retry.class,groups= {"smoke"} )
 	//retry mechnaisn run avan helpcheyunu
 	public void verifyvalidusernamevalidpassword() throws IOException {
@@ -23,9 +25,11 @@ public class LoginTest extends TestNGBase{
 	//	
 		
 		LoginPage login=new LoginPage(driver);
-		login.enterusername(usernameValue);
-		login.enterpassword(passwordValue);
-		login.clicksignin();
+		//chaining-
+		login.enterusername(usernameValue).enterpassword(passwordValue);
+		//login.enterpassword(passwordValue);
+		//chaing-
+		home=login.clicksignin();
 		
 		String expected="https://groceryapp.uniqassosiates.com/admin";
 	    String actual=driver.getCurrentUrl();
@@ -39,9 +43,10 @@ public class LoginTest extends TestNGBase{
 		String passwordValue =ExcelUtility.getStringData(2, 1, Constants.LOGINSHEET);
 		
 		LoginPage login=new LoginPage(driver);
-		login.enterusername(usernameValue);
-		login.enterpassword(passwordValue);
-		login.clicksignin();
+		//chaining
+		login.enterusername(usernameValue).enterpassword(passwordValue);
+		//login.enterpassword(passwordValue);
+		home=login.clicksignin();
 		
 		
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";
@@ -54,9 +59,9 @@ public class LoginTest extends TestNGBase{
 		String passwordValue =ExcelUtility.getStringData(3, 1, Constants.LOGINSHEET);
 		
 		LoginPage login=new LoginPage(driver);
-		login.enterusername(usernameValue);
-		login.enterpassword(passwordValue);
-		login.clicksignin();
+		login.enterusername(usernameValue).enterpassword(passwordValue);
+		//login.enterpassword(passwordValue);
+		home=login.clicksignin();
 		
 		
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";

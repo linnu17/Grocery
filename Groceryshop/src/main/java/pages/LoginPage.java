@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
 import utilities.WaitUtility;
@@ -14,27 +15,34 @@ public class LoginPage {
     WaitUtility wait =new WaitUtility(); 
 	public LoginPage(WebDriver driver) {
 		this.driver=driver;
+		PageFactory.initElements(driver, this);
 		
 	}
 	@FindBy(xpath ="//input[@class='form-control' and @name='username']")WebElement username;
-		public void enterusername(String usernamevalue) {
+	//here when we use chaining change void and ad loginpage,and return this;
+		public LoginPage enterusername(String usernamevalue) {
 		//WebElement username = driver.findElement(By.xpath("//input[@class='form-control' and @name='username']"));
 		//username.sendKeys(usernamevalue);
 	    page.sendDataToElement(username, usernamevalue);
+	    return this;
 	}
-	@FindBy(xpath ="//input[@class='form-control' and @name='password']")WebElement password;	
-      public void enterpassword(String passwordValue) {
+	@FindBy(xpath ="//input[@class='form-control' and @name='password']")WebElement password;
+	//here when we use chaining change void and ad loginpage,and return this;
+      public LoginPage enterpassword(String passwordValue) {
 			//WebElement password = driver.findElement(By.xpath("//input[@class='form-control' and @name='password']"));
 			//password.sendKeys(passwordValue);
     	  page.sendDataToElement(password, passwordValue);
+    	    return this;
 		
 		}
       @FindBy(xpath ="signin")WebElement signin;
-		public void clicksignin() {
+		public HomePage clicksignin() {
 			//WebElement signin = driver.findElement(By.xpath("//button[text() ='Sign In']"));
 			//signin.click();
 			wait.waitUntilClickable(driver, signin);
 			page.clickOnElement(signin);
+			//ivide vere page ayond return new eth page ano ath koduthit (driver);
+			return new HomePage(driver);
 		}
 	
 		
