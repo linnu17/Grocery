@@ -2,6 +2,7 @@ package testscript;
 
 import java.io.IOException;
 
+import org.apache.commons.math3.analysis.function.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -22,8 +23,8 @@ public class AdminTest extends TestNGBase {
 	AdminPage admin;
 @Test
 	public void verifyadduser() throws IOException {
-	String usernameValue =ExcelUtility.getStringData(1, 0, "LoginPage");
-	String passwordValue =ExcelUtility.getStringData(1, 1, "LoginPage");
+	String usernameValue =ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+	String passwordValue =ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 	LoginPage login = new LoginPage(driver);
 	login.enterusername(usernameValue).enterpassword(passwordValue);
 	//login.enterpassword(passwordValue);
@@ -98,7 +99,7 @@ public void verifyreset() throws IOException {
 	//AdminPage admin = new AdminPage(driver);
 	admin=home.clickMoreInfo();
 	
-	admin.addnewuser().reset();
+	//admin.addnewuser().reset();
 	
 	//admin.reset();
 	WebElement resetassert = driver.findElement(By.xpath("//h4[@class='card-title' and text() ='Admin Users']"));

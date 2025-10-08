@@ -7,14 +7,14 @@
   <test thread-count="5" name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testscript.HomeTest">
+      <class name="testscript.LoginTest">
         <methods>
           <include name="driverQuit"/>
+          <include name="verifyvalidusernameinvalidpassword"/>
           <include name="browserInitialization"/>
           <include name="browserQuitClose"/>
-          <include name="verifyLogout"/>
         </methods>
-      </class> <!-- testscript.HomeTest -->
+      </class> <!-- testscript.LoginTest -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Crossbrowsertesting] -->

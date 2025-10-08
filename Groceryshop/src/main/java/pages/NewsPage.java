@@ -11,13 +11,13 @@ import utilities.WaitUtility;
 
 public class NewsPage {
 	public WebDriver driver;
-	WaitUtility wait =new WaitUtility();
-	PageUtility page =new PageUtility(); 
+	PageUtility page = new PageUtility();
+	WaitUtility wait = new WaitUtility();
 	public NewsPage(WebDriver driver) {
-		this.driver=driver;
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
-}
-	
+	}
+
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")WebElement clickknews;
 	public NewsPage  clicknewnews() {
 		wait.waitUntilClickable(driver, clickknews);
@@ -52,4 +52,4 @@ public class NewsPage {
 		//WebElement newsalert = driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissible']"));
 		return newsalert.isDisplayed();
 	}
-}
+	}

@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-06T14:58:38 IST" name="Crossbrowsertesting" finished-at="2025-10-06T14:58:40 IST" duration-ms="1947">
+  <suite started-at="2025-10-08T12:34:20 IST" name="Crossbrowsertesting" finished-at="2025-10-08T12:34:24 IST" duration-ms="4467">
     <groups>
     </groups>
-    <test started-at="2025-10-06T14:58:38 IST" name="ChromeTest" finished-at="2025-10-06T14:58:40 IST" duration-ms="1947">
-      <class name="testscript.HomeTest">
-        <test-method is-config="true" signature="browserInitialization(java.lang.String)[pri:0, instance:testscript.HomeTest@2584b82d]" started-at="2025-10-06T14:58:39 IST" name="browserInitialization" finished-at="2025-10-06T14:58:40 IST" duration-ms="1854" status="FAIL">
+    <test started-at="2025-10-08T12:34:20 IST" name="ChromeTest" finished-at="2025-10-08T12:34:24 IST" duration-ms="4467">
+      <class name="testscript.LoginTest">
+        <test-method is-config="true" signature="browserInitialization(java.lang.String)[pri:0, instance:testscript.LoginTest@660acfb]" started-at="2025-10-08T12:34:20 IST" name="browserInitialization" finished-at="2025-10-08T12:34:24 IST" duration-ms="4385" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -60,7 +60,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserInitialization -->
-        <test-method signature="verifyLogout()[pri:0, instance:testscript.HomeTest@2584b82d]" started-at="2025-10-06T14:58:40 IST" name="verifyLogout" description="verify Logout" finished-at="2025-10-06T14:58:40 IST" duration-ms="0" status="SKIP">
+        <test-method signature="verifyvalidusernameinvalidpassword()[pri:2, instance:testscript.LoginTest@660acfb]" started-at="2025-10-08T12:34:24 IST" name="verifyvalidusernameinvalidpassword" description="verify login with validusername and invalidpw" finished-at="2025-10-08T12:34:24 IST" duration-ms="0" status="SKIP">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
@@ -105,23 +105,23 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLogout -->
-        <test-method is-config="true" signature="browserQuitClose()[pri:0, instance:testscript.HomeTest@2584b82d]" started-at="2025-10-06T14:58:40 IST" name="browserQuitClose" finished-at="2025-10-06T14:58:40 IST" duration-ms="0" status="SKIP">
+        </test-method> <!-- verifyvalidusernameinvalidpassword -->
+        <test-method is-config="true" signature="browserQuitClose()[pri:0, instance:testscript.LoginTest@660acfb]" started-at="2025-10-08T12:34:24 IST" name="browserQuitClose" finished-at="2025-10-08T12:34:24 IST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserQuitClose -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.HomeTest@2584b82d]" started-at="2025-10-06T14:58:40 IST" name="driverQuit" finished-at="2025-10-06T14:58:40 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.LoginTest@660acfb]" started-at="2025-10-08T12:34:24 IST" name="driverQuit" finished-at="2025-10-08T12:34:24 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyLogout status=SKIP method=HomeTest.verifyLogout()[pri:0, instance:testscript.HomeTest@2584b82d] output={null}]]]>
+                <![CDATA[[TestResult name=verifyvalidusernameinvalidpassword status=SKIP method=LoginTest.verifyvalidusernameinvalidpassword()[pri:2, instance:testscript.LoginTest@660acfb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-      </class> <!-- testscript.HomeTest -->
+      </class> <!-- testscript.LoginTest -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Crossbrowsertesting -->
 </testng-results>

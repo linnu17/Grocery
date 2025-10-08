@@ -6,10 +6,14 @@
   <test thread-count="5" name="ChromeTest">
   <parameter name="browser" value="chrome"></parameter>
     <classes>
-      <class name="testscript.HomeTest"/>
-     <!-- <class name="testscript.AdminTest"/>
-      <class name="testscript.NewsTest"/>
-      <class name="testscript.LoginTest"/>-->
+      <!--<class name="testscript.HomeTest"/>
+     <class name="testscript.AdminTest"/>
+      <class name="testscript.NewsTest"/>-->
+      <class name="testscript.LoginTest">
+      <methods>
+      <include name="verifyvalidusernameinvalidpassword"></include>
+      </methods>
+      </class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

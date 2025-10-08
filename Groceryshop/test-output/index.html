@@ -103,7 +103,7 @@
                     <div class="method-list-content skipped suite-Crossbrowsertesting">
                       <span>
                         <img src="skipped.png" width="3%"/>
-                        <a href="#" panel-name="suite-Crossbrowsertesting" title="testscript.HomeTest" class="method navigator-link" hash-for-method="verifyLogout">verifyLogout</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Crossbrowsertesting" title="testscript.LoginTest" class="method navigator-link" hash-for-method="verifyvalidusernameinvalidpassword">verifyvalidusernameinvalidpassword</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content skipped suite-Crossbrowsertesting -->
@@ -121,14 +121,14 @@
           <div class="suite-Crossbrowsertesting-class-skipped">
             <div class="main-panel-header rounded-window-top">
               <img src="skipped.png"/>
-              <span class="class-name">testscript.HomeTest</span>
+              <span class="class-name">testscript.LoginTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyLogout">
-                  </a> <!-- verifyLogout -->
-                  <span class="method-name">verifyLogout</span>
+                  <a name="verifyvalidusernameinvalidpassword">
+                  </a> <!-- verifyvalidusernameinvalidpassword -->
+                  <span class="method-name">verifyvalidusernameinvalidpassword</span>
                   <div class="stack-trace">java.lang.NullPointerException
 	at java.base/java.util.Objects.requireNonNull(Objects.java:233)
 	at java.base/java.util.ImmutableCollections$Map1.&lt;init&gt;(ImmutableCollections.java:1112)
@@ -140,7 +140,7 @@
 ... Removed 29 stack frames
 </div> <!-- stack-trace -->
                   <em>
-(verify Logout)                  </em>
+(verify login with validusername and invalidpw)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -161,7 +161,11 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;ChromeTest&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testscript.HomeTest&quot;/&gt;
+      &lt;class name=&quot;testscript.LoginTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;verifyvalidusernameinvalidpassword&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- testscript.LoginTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- ChromeTest --&gt;
 &lt;/suite&gt; &lt;!-- Crossbrowsertesting --&gt;
@@ -203,8 +207,8 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyLogout')
-data.setCell(0, 2, 'testscript.HomeTest')
+data.setCell(0, 1, 'verifyvalidusernameinvalidpassword')
+data.setCell(0, 2, 'testscript.LoginTest')
 data.setCell(0, 3, 0);
 window.suiteTableData['Crossbrowsertesting']= { tableData: data, tableDiv: 'times-div-Crossbrowsertesting'}
 return data;
@@ -225,9 +229,20 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Crossbrowsertesting" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">3 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">testscript.LoginTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyvalidusernamevalidpassword</span>
+                <br/>
+                <span class="ignored-method-name">verifyinvalidusernamevalidpassword</span>
+                <br/>
+                <span class="ignored-method-name">verifyinvalidusernameinvalidpassword</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Crossbrowsertesting" class="panel">
@@ -236,7 +251,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testscript.HomeTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testscript.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <img src="failed.png">
                 </img>
@@ -244,8 +259,8 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method after">
-                <span class="method-name">driverQuit([TestResult name=verifyLogout status=SKIP method=HomeTest.verifyLogout()[pri:0, instance:testscript....)</span>
-                <span class="method-start">1908 ms</span>
+                <span class="method-name">driverQuit([TestResult name=verifyvalidusernameinvalidpassword status=SKIP method=LoginTest.verifyvalidusername...)</span>
+                <span class="method-start">4435 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
